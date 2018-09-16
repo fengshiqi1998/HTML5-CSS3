@@ -1,0 +1,81 @@
+#outer {
+    margin: 0 auto;
+    /*left:-10px;*/
+    height: 30px;
+    border: 1px solid #FFEE22;
+    background-color: #000000;
+}
+
+#control,#rate,#ratetime,#volume {
+    float: left;
+    margin-left: 1px;
+    height: 30px;
+    border: 0px solid #FFEEAA;
+}
+
+#control {
+    width: 80px;
+}
+
+#prv,#playp,#next,#pausep {
+    float: left;
+    margin-left: 1px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-image: url(../images/audioplay.png);
+    background-repeat: no-repeat;
+    cursor: point;
+}
+
+#prv {
+    width: 25px;
+    background-position: -26px -25px;
+}
+
+#playp {
+    background-position: -50px -24px;
+}
+
+.ply {
+    width: 20px;
+}
+
+#pausep {
+    background-position: -70px -24px;
+}
+
+#next {
+    width: 20px;
+    background-position: -26px 3px;
+}
+
+#rate {
+    background-color: #000000;
+}
+
+#ratetime {
+    text-align: center;
+    line-height: 30px;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+#ratetop,#ratebom {
+    height: 14px;
+}
+
+#ratemid {
+    height: 4px;
+    background-color: #FFEEEE;
+}
+
+#ratemidtop {
+    position: relative;
+    z-index: 10px;
+    width: 1px;
+    height: 5px;
+    top: -5px;
+    background-color: #009ACD;
+    border-right: 2px solid #FF1122;
+}

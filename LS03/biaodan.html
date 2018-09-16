@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>script</title>
+	</head>
+	<body>
+		<form action="#" method="get">			
+			运行效果<input type="number" name="Num1" min="1" max="100" step="1" value="4" /><!--数值输入文本框--><br />
+			<input type="email" name="email" placeholder="请输入邮箱" /><!--邮箱输入文本框--><br />
+			<input type="url" placeholder="请输入网址" /><!--url输入文本框--><br />
+			<input type="tel" placeholder="请输入电话号码" /><!--电话号码输入文本框--><br />
+			<input type="range" min="0" max="50" step="5" name="Rdemo" value="0" /><!--滑动条输入文本框--><br />
+			<input type="date" name="Datedemo" /><!--日期时间输入文本框--><br />
+			<input type="time" name="Timedemo" /><br />
+			<input type="datetime-local" name="DTLdemo" /><br />
+			<input type="color" name="Colordemo" /><!--颜色选择文本框--><br />
+			<input type="search" name="Sdemo" /><!--搜索功能文本框-->
+			<input type="submit" />
+		</form>
+		<form>
+			<input type="search" name="DLdemo" autocomplete="on" list="names" />
+			<datalist id="names">
+				<option>hello</option>
+				<option>hi</option>
+				<option>how</option>
+				<option>are</option>
+			</datalist>
+		</form>
+		<form id="testform" method="get" action="serve.jsp">
+			<input type="submit" name="s1" value="v1" formaction="s1.jsp" />提交到S1
+			<input type="submit" name="s2" value="v2" formmethod="post" />提交到S2
+			<input type="submit" name="s3" value="v3" formmethod="get" />提交到S3
+		</form>
+	</body>
+</html>
