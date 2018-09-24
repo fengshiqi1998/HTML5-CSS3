@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>6-2 remove item from localStorage</title>
+	<link rel="icon" href="../img/snowflake.png" />
+	<script>
+		window.onload = function(){
+			document.getElementById("addButton").onclick = function(){
+				var keys = document.getElementById("keys").value;
+				var text = document.getElementById("text").value;
+				localStorage.setItem(keys, text);
+				console.log(localStorage.getItem(keys));
+			}
+			
+			document.getElementById("removeButton").onclick = function(){
+				var keys = document.getElementById("keys").value;
+				localStorage.removeItem(keys);
+			}
+		}
+	</script>
+</head>
+
+<body>
+	键<input type="text" value="" id="keys" />
+	<br />
+	值<input type="text" value="" id="text" />
+	<br />
+	<input type="button" value="添加" id="addButton" />
+	<input type="button" value="删除" id="removeButton" />
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../img/snowflake.png" />
+</head>
+
+<body>
+    <p>刷新页面会看到计数器在增长。</p>
+    <p>sessionStorage可以作为会话计数器，localStorage则可以作为Web应用访问计数器。</p>
+
+    <script>
+    	//pagecount属性为字符串类型，需要进行强制类型转换
+        if (sessionStorage.pagecount) 
+        {
+            sessionStorage.pagecount = Number(sessionStorage.pagecount) + 1;
+        } 
+        else 
+        {
+            sessionStorage.pagecount = 1;
+        }
+        document.write("在当前会话访问了 " + sessionStorage.pagecount + " 次");
+        if(localStorage.pagecount){
+        	localStorage.pagecount = eval(localStorage.pagecount) + 1;
+        }else{
+        	localStorage.pagecount = 1;
+        }
+        document.write("<br />网站被访问过"+localStorage.pagecount+"次");
+    </script>
+</body>
+</html>

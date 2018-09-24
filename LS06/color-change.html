@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>页面换肤</title>
+		<link rel="icon" href="./img/snowflake.png" />
+		<style>
+			body{
+				/*background-color:#FFF3A5;*/
+				background-color:#FFF5EE;
+			}
+			fieldset{
+				border:2px solid #CDC9C9;
+				background-color:#fff;
+			}
+			legend{
+				color: #DD0000;
+				font-size:24px;
+				font-weight: bold;
+				background-color:#fff;
+			}
+			#bord{
+				float: left;
+				border:1px solid #CDC9C9;
+				width:100%;
+			}
+			.contents{
+				float: left;
+				margin:10px;
+				width:20px;
+				height:20px;
+				cursor: pointer;
+			}
+			#text{
+				border:1px solid #CDC9C9;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var contents = document.getElementsByClassName('contents');
+				var body = document.getElementsByTagName('body')[0];
+				if(localStorage.getItem("bgcolor")) {
+					body.style.backgroundColor = localStorage.getItem("bgcolor");
+					let color = localStorage.getItem("bgcolor");
+					for(let i = 0;i<contents.length;i++) {
+						if(contents[i].style.backgroundColor === color) contents[i].style.marginTop = "5px";
+					}
+				}
+//				console.log(contents);
+				for(let i = 0; i < contents.length; i++){
+					contents[i].onclick = function(){
+//						console.log(contents[i].style.backgroundColor);
+//						console.log(body.style.backgroundColor);
+						for(let j = 0;j < contents.length; j++) {
+							contents[j].style.marginTop = "10px";
+						}
+						contents[i].style.marginTop = "5px";
+						localStorage.setItem("bgcolor",contents[i].style.backgroundColor);
+						body.style.backgroundColor = localStorage.getItem("bgcolor");
+					}
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<fieldset>
+			<legend>页面换肤</legend>
+			<div id="bord">
+				<div class="contents" style="background-color: #CDC0B0;"></div>
+				<div class="contents" style="background-color: #9932CC;"></div>
+				<div class="contents" style="background-color: #CD3700;"></div>
+				<div class="contents" style="background-color: #B0E0E6;"></div>
+				<div class="contents" style="background-color: #EEAD0E;"></div>
+				<div class="contents" style="background-color: #B3EE3A;"></div>
+			</div>
+			<div id="text">
+					LocalStorage将数据保存在客户端本地的硬件设备中，即使浏览器被关闭了，该数据仍然存在，
+				下次打开浏览器访问网站时仍然可以继续使用。
+			</div>
+		</fieldset>
+	</body>
+</html>

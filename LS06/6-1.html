@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>6-1 LocalStorage set/get Item</title>
+	<link rel="icon" href="./img/snowflake.png" />
+	<script>
+		window.onload = function(){
+			if(!window.localStorage){
+				alert("你的浏览器不支持LocalStorage，请你更新浏览器");	
+			}
+			localStorage.setItem("key","first set Item");
+//			localStorage.setItem("key", "666666");
+			localStorage['key2'] = "second set Item";
+			localStorage.key3 = "7777777";
+			alert(localStorage.getItem("key"));
+			alert(localStorage['key2']);
+			alert(localStorage.key3);
+//			localStorage.removeItem("sticky");
+//			localStorage.clear();
+		}
+	</script>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function(){
+				if(navigator.geolocation){
+					navigator.geolocation.getCurrentPosition(showPosition,errPosition);
+				}
+				else{
+					getE("tip").innerHTML = "您的浏览器版本过旧，建议使用最新版本谷歌浏览器。";
+				}
+			}
+			function showPosition(data){
+				getE("lon").innerHTML = ("经度："+data.coords.longitude);
+				getE("lat").innerHTML = ("维度："+data.coords.latitude);
+				getE("accuracy").innerHTML = ("精确度："+data.coords.accuracy+"米");
+			}
+			function errPosition(err){
+				switch(error.code){
+					case 1:
+					errorD
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="tip"></div>
+		<div id="lon"></div>
+		<div id="lat"></div>
+		<div id="accuracy"></div>
+	</body>
+</html>
