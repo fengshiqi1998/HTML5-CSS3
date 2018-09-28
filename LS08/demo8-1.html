@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>FileList与file示例</title>
+	<link rel="icon" href="../img/snowflake.png" />
+</head>
+<body>
+	<script>
+		function ShowFileName() {
+//			var file = document.getElementById('file');
+//			for(var i = 0;i<file.files.length;i++) {
+////				console.log(file.files[i].name);
+////				console.log(file.files[i].lastModifiedDate);
+//				console.log('文件名为'+file.files[i].name+',最后更改日期为'+file.files[i].lastModifiedDate);
+//			}
+			var file = document.getElementById('file').files[0];
+			var size = document.getElementById('size');
+			var type = document.getElementById('type');
+			size.innerHTML = file.size;
+			type.innerHTML = file.type;
+		}
+	</script>
+	选择文件：
+	<input type="file" id="file" multiple size="80"/>
+	<input type="button" onclick="ShowFileName();" value="文件上传"/> 
+	<br />
+	文件字节长度：<div id="size"></div>
+	文件类型：<div id="type"></div>
+</body>
+</html>

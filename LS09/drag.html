@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function() {
+				function drag(ev) {
+					ev.DataTransfer.setData("Text",ev.target.id);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<img src="images/img1.jpg" id="dragimg" draggable="true" ondragstart="drag(event)" />
+	</body>
+</html>

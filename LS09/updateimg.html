@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="../img/snowflake.png" />
+		<title>上传头像</title>
+		<style>
+			#bg{
+				width:240px;
+				height:320px;
+				border: 1px solid #000;
+			}
+		</style>
+		<script>
+				window.onload = function() {
+					var bg = document.getElementById('bg');
+					// 阻止页面默认事件触发
+					document.ondragover = function(e) {
+						e.preventDefault();
+					}
+					document.ondrop = function(e) {
+						e.preventDefault();
+					}
+					// 阻止元素默认事件的触发
+					bg.ondragover = function(e) {
+						e.preventDefault();
+					}
+					// 创建拖拽事件
+					bg.ondrop = function(e) {
+						var pic = e.dataTransfer.files[0];
+						var reader = new FileReader();
+						reader.readAsDataURL(pic);
+						reader.onload = function() {
+							var img = new Image();
+							img.src = reader.result;
+							bg.appendChild(img);
+						}
+					}
+				}
+			</script>
+	</head>
+	<body>
+		<h2>上传头像</h2>
+		<div id="bg"></div>
+	</body>
+</html>
