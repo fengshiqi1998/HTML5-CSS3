@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="../img/snowflake.png" />
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			canvas{
+				border: 1px solid #000;
+				background-color: #eee;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<canvas id="canvas" width="1200" height="600"></canvas>
+		<script>
+			//创建绘图容器
+			var canvas = document.getElementById("canvas");
+			var context = canvas.getContext("2d");
+			context.lineWidth = 5;
+			context.strokeStyle = "#005588";
+//			context.moveTo(0,0);
+//			context.lineTo(100,100);
+//			context.lineTo(200,0);
+//			context.lineTo(300,100);
+//			context.lineTo(400,0);
+//			context.moveTo(100,100);
+//			context.lineTo(100,300);
+//			context.lineTo(200,300);
+//			context.closePath();
+//			context.lineWidth = 10;
+//			context.strokeStyle = "#008888";
+//			context.stroke();
+			
+//			context.arc(300,300,200,0,1*Math.PI,false);
+//			context.stroke();
+			
+//			for(let i = 0;i < 10;i++) {
+//				context.beginPath();
+//				context.arc(50+100*i,60,40,0,2*Math.PI*(i+1)/10,false);
+//				context.closePath();
+//				context.stroke();
+//			}
+			
+//			for(var i=1;i<9;i++){
+//				context.strokeStyle="#32cd32";
+//				context.beginPath();
+//				context.arc(0,400,i*50,0,1.5*Math.PI,true);
+//				context.closePath();
+//				context.stroke();
+//			}
+//			context.beginPath();
+			// 绘制白色半圆
+			context.arc(200,200,80,1.5*Math.PI,0.5*Math.PI,false);
+			context.fillStyle = "#fff";
+			context.closePath();
+			context.fill();
+			// 绘制黑色半圆
+			context.beginPath();
+			context.arc(200,200,80,0.5*Math.PI,1.5*Math.PI,false);
+			context.fillStyle = "#000";
+			context.closePath();
+			context.fill();
+			// 绘制白色小圆
+			context.beginPath();
+			context.arc(200,160,40,0,0.1*Math.PI,true)
+			context.fillStyle = "#fff";
+			context.closePath();
+			context.fill();
+			// 绘制黑色小圆
+			context.beginPath();
+			context.arc(200,240,40,0,0.1*Math.PI,true)
+			context.fillStyle = "#000";
+			context.closePath();
+			context.fill();
+			
+			context.beginPath();
+			context.arc(200,160,5,0,0.1*Math.PI,true)
+			context.fillStyle = "#000";
+			context.closePath();
+			context.fill();
+			
+			context.beginPath();
+			context.arc(200,240,5,0,0.1*Math.PI,true)
+			context.fillStyle = "#fff";
+			context.closePath();
+			context.fill();
+		</script>
+	</body>
+</html>

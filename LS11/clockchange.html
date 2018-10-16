@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="../img/snowflake.png" />
+		<title>钟表</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			canvas{
+				border: 1px solid #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="600"></canvas>
+		<script type="text/javascript">
+			function draw(){
+				var canvas = document.getElementById("canvas");
+				var ctx = canvas.getContext("2d");
+				canvas.height = canvas.height;
+				// 画圆
+				ctx.beginPath();
+				ctx.arc(300,300,250,0,2*Math.PI,false);
+				ctx.lineWidth = 10;
+				ctx.strokeStyle = "#C0FF3E";
+				ctx.closePath();
+				ctx.stroke();
+				
+				// 圆心
+				ctx.beginPath();
+				ctx.arc(300,300,5,0,2*Math.PI,false);
+				ctx.fillStyle = "#000000";
+				ctx.fill();
+				ctx.closePath();
+				// 坐标轴平移和旋转
+				ctx.translate(300,300);
+				ctx.rotate(-90/180*Math.PI);
+				ctx.save();
+				
+				// 小刻度
+				
+				for(let i=0;i<60;i++){
+					ctx.beginPath();
+					ctx.rotate(6/180*Math.PI);
+					ctx.lineWidth = 5;
+					ctx.moveTo(220,0);
+					ctx.lineTo(230,0);
+					ctx.closePath();
+					ctx.strokeStyle = "#000000";
+					ctx.stroke();
+				}
+				// 大刻度
+				ctx.restore();
+				for(let i=0;i<12;i++){
+					ctx.beginPath();
+					ctx.rotate(30/180*Math.PI);
+					ctx.lineWidth = 5;
+					ctx.moveTo(210,0);
+					ctx.lineTo(230,0);
+					ctx.closePath();
+					ctx.strokeStyle = "#cd2626";
+					ctx.stroke();
+				}
+				// 数字
+				ctx.restore();
+				ctx.rotate(90/180*Math.PI);
+				
+				ctx.beginPath();
+				ctx.fillStyle = "black";
+				ctx.translate(-10,10);
+				for(var i=12;i>0;i--){
+					ctx.font = "bold 25px 宋体";
+					ctx.fillText(i,Math.cos((90-30*i)*Math.PI/180)*190,-Math.sin((90-30*i)*Math.PI/180)*190,24);
+					
+				}
+				ctx.closePath();
+				ctx.translate(10,-10);
+				
+	
+				// 获取日期
+				var date = new Date();
+				var hour = date.getHours();
+				console.log(hour);
+				var minute = date.getMinutes();
+				console.log(minute);
+				var second = date.getSeconds();
+				console.log(second);
+				// 时针
+				ctx.restore();
+//				ctx.rotate(-90/180*Math.PI);
+				ctx.beginPath();
+				ctx.rotate((-96+(30*hour+0.5*minute+0.0083*second))/180*Math.PI);
+				ctx.lineWidth = 7;
+				ctx.moveTo(0,0);
+				ctx.lineTo(150,0);
+				ctx.closePath();
+				ctx.strokeStyle = "purple";
+				ctx.stroke();
+				// 分针
+				
+				ctx.restore();
+//				ctx.rotate(42/180*Math.PI);
+				ctx.beginPath();
+				ctx.rotate((42+(6*minute+0.1*second))/180*Math.PI);
+				ctx.lineWidth = 5;
+				ctx.moveTo(0,0);
+				ctx.lineTo(180,0);
+				ctx.closePath();
+				ctx.strokeStyle = "red";
+				ctx.stroke();
+				//秒针
+				
+				ctx.restore();
+				
+				ctx.beginPath();
+				ctx.rotate((120+(6*second))/180*Math.PI);
+				ctx.lineWidth = 3;
+				ctx.moveTo(0,0);
+				ctx.lineTo(190,0);
+				ctx.closePath();
+				ctx.strokeStyle = "orange";
+				ctx.stroke();
+			}
+			setInterval(draw,10);
+		</script>
+	</body>
+</html>

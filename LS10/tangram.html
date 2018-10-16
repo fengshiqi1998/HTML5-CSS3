@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>七巧板</title>
+		<link rel="icon" href="../img/snowflake.png" />
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			canvas{
+				margin: 2% 10%;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas width="1000" height="600" id="canvas"></canvas>
+	</body>
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext("2d");
+		
+		ctx.lineWidth = 1;
+		
+		ctx.beginPath();
+		ctx.moveTo(20,20);
+		ctx.lineTo(20,500+20);
+		ctx.lineTo(250+20,250+20);
+		ctx.closePath();
+		ctx.fillStyle = "#009ACD";
+		ctx.fill();
+		
+		ctx.beginPath();
+		ctx.moveTo(20,20);
+		ctx.lineTo(20+500,20);
+		ctx.lineTo(20+250,20+250);
+		ctx.closePath();
+		ctx.fillStyle = "#90EE90";
+		ctx.fill();
+
+		ctx.beginPath();
+		ctx.moveTo(20,20+500);
+		ctx.lineTo(20+250,20+500);
+		ctx.lineTo(20+125,20+125*3);
+		ctx.closePath();
+		ctx.fillStyle = "#E066FF";
+		ctx.fill();
+		
+		ctx.beginPath();
+		ctx.moveTo(20+125,20+125*3);
+		ctx.lineTo(20+250,20+500);
+		ctx.lineTo(20+125*3,20+125*3);
+		ctx.lineTo(20+250,20+250);
+		ctx.closePath();
+		ctx.fillStyle = "#EE00EE";
+		ctx.fill();
+		
+		ctx.beginPath();
+		ctx.moveTo(20+250,20+250);
+		ctx.lineTo(20+125*3,20+125);
+		ctx.lineTo(20+125*3,20+125*3);
+		ctx.closePath();
+		ctx.fillStyle = "#FFFF00";
+		ctx.fill();
+		
+		ctx.beginPath();
+		ctx.moveTo(20+500,20);
+		ctx.lineTo(20+500,20+250);
+		ctx.lineTo(20+125*3,20+125*3);
+		ctx.lineTo(20+125*3,20+125);
+		ctx.closePath();
+		ctx.fillStyle = "#FF6A6A";
+		ctx.fill();
+		
+		ctx.beginPath();
+		ctx.moveTo(20+500,20+250);
+		ctx.lineTo(20+500,20+500);
+		ctx.lineTo(20+250,20+500);
+		ctx.closePath();
+		ctx.fillStyle = "#FFC125";
+		ctx.fill();
+		
+//		ctx.beginPath();
+//		ctx.moveTo(20,20+500);
+//		ctx.lineTo(20+250,20+500);
+//		ctx.lineTo(20+125,20+125*3);
+//		ctx.closePath();
+//		ctx.fillStyle = "#E066FF";
+//		ctx.fill();
+	</script>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>line</title>
+		<link rel="icon" href="../img/snowflake.png" />
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			canvas{
+				margin: 0 auto;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas width="1200" height="600" id="canvas"></canvas>
+	</body>
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext("2d");
+		
+		ctx.lineWidth = 20;
+		ctx.lineJoin = "miter";
+//		ctx.beginPath();
+//		ctx.strokeStyle = "#982e4b";
+//		ctx.moveTo(100,100);
+//		ctx.lineTo(700,100);
+//		ctx.lineCap = "butt";
+//		ctx.stroke();
+//		
+//		ctx.beginPath();
+//		ctx.strokeStyle = "#982e4b";
+//		ctx.moveTo(100,200);
+//		ctx.lineTo(700,200);
+//		ctx.lineCap = "round";
+//		ctx.stroke();
+//		
+//		ctx.beginPath();
+//		ctx.strokeStyle = "#982e4b";
+//		ctx.moveTo(100,300);
+//		ctx.lineTo(700,300);
+//		ctx.lineCap = "square";
+//		ctx.stroke();
+		
+		function drawStar(cxt,r,R,x,y,rot){
+			cxt.beginPath();
+			for(var i = 0;i<5;i++){
+				cxt.lineTo(Math.cos((18+72*i-rot)/180*Math.PI)*R,-Math.sin((18+72*i-rot)/180*Math.PI)*R);
+//				cxt.lineTo();
+				cxt.lineTo(Math.cos((54+72*i-rot)/180*Math.PI)*r,-Math.sin((54+72*i-rot)/180*Math.PI)*r);
+//				cxt.lineTo();
+			}
+			cxt.closePath();
+			
+			cxt.fillStyle = "#fb3";
+			cxt.strokeStyle = "#fd5";
+			cxt.stroke();
+		}
+		
+		drawStar(ctx,100,50,500,500,1000);
+	</script>
+</html>

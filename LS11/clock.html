@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="../img/snowflake.png" />
+		<title>钟表</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			canvas{
+				border: 1px solid #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="600">
+			<!--<canvas id="hours" width="800" height="600"></canvas>
+			<canvas id="mintues" width="800" height="600"></canvas>
+			<canvas id="seconds" width="800" height="600"></canvas>-->
+		</canvas>
+		
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+//			var hours = document.getElementById("hours");
+//			var ctx1 = canvas.getContext("2d");
+//			var minutes = document.getElementById("minutes");
+//			var ctx2 = canvas.getContext("2d");
+//			var seconds = document.getElementById("seconds");
+//			var ctx3 = canvas.getContext("2d");
+			// 画圆
+			ctx.beginPath();
+			ctx.arc(300,300,250,0,2*Math.PI,false);
+			ctx.lineWidth = 10;
+			ctx.strokeStyle = "#C0FF3E";
+			ctx.closePath();
+			ctx.stroke();
+			
+			// 圆心
+			ctx.beginPath();
+			ctx.arc(300,300,5,0,2*Math.PI,false);
+			ctx.fillStyle = "#000000";
+			ctx.fill();
+			ctx.closePath();
+			// 坐标轴平移和旋转
+			ctx.translate(300,300);
+			ctx.rotate(-90/180*Math.PI);
+			ctx.save();
+			
+			// 小刻度
+			
+			for(let i=0;i<60;i++){
+				ctx.beginPath();
+//				if(!i) ;
+				ctx.rotate(6/180*Math.PI);
+//				ctx.fillStyle = "#000000";
+//				ctx.fillRect(210,0,10,5);
+				ctx.lineWidth = 5;
+				ctx.moveTo(220,0);
+				ctx.lineTo(230,0);
+				ctx.closePath();
+				ctx.strokeStyle = "#000000";
+				ctx.stroke();
+			}
+			// 大刻度
+			ctx.restore();
+			for(let i=0;i<12;i++){
+				ctx.beginPath();
+//				if(!i) ;
+				ctx.rotate(30/180*Math.PI);
+//				ctx.fillStyle = "#CD2626";
+//				ctx.fillRect(200,0,20,5);
+				ctx.lineWidth = 5;
+				ctx.moveTo(210,0);
+				ctx.lineTo(230,0);
+				ctx.closePath();
+				ctx.strokeStyle = "#cd2626";
+				ctx.stroke();
+			}
+			// 数字
+			ctx.restore();
+			ctx.rotate(90/180*Math.PI);
+//			for(let i=3;i<13;i++){
+//				ctx.beginPath();
+//				ctx.rotate(30/180*Math.PI);
+//				ctx.font = "bold 16px 宋体";
+//		        ctx.fillStyle = "#000";
+//		        ctx.fillText(i,Math.cos(30*Math.PI)*180,Math.sin(30*Math.PI)*180);
+//				ctx.closePath();
+//			}
+			// 数字位置
+//			function NumArea(num,x,y){
+//				ctx.beginPath();
+//				ctx.font = "bold 16px 宋体";
+//		        ctx.fillStyle = "#000";
+//		        ctx.fillText(num,x,y);
+//				ctx.closePath();
+//			}
+//			NumArea(1,95,-160); NumArea(2,165,-95); NumArea(3,195,0); NumArea(4,165,100); NumArea(5,90,175); NumArea(6,0,201);
+//			NumArea(7,-105,180); NumArea(8,-170,105); NumArea(9,-195,0); NumArea(10,-170,-95); NumArea(11,-100,-160); NumArea(12,0,-190);
+//			3 4 5 6 7 8 9 10 11 12 13 14
+			
+			ctx.beginPath();
+			ctx.fillStyle = "black";
+			ctx.translate(-10,10);
+			for(var i=12;i>0;i--){
+				ctx.font = "bold 25px 宋体";
+				ctx.fillText(i,Math.cos((90-30*i)*Math.PI/180)*190,-Math.sin((90-30*i)*Math.PI/180)*190,24);
+				
+			}
+			ctx.closePath();
+			ctx.translate(10,-10);
+			
+			function getTimes(){
+				// 获取日期
+				var date = new Date();
+				// 时针
+				ctx.restore();
+				var hour = date.getHours();
+				console.log(hour);
+				ctx.rotate(-90/180*Math.PI);
+				ctx.beginPath();
+				ctx.rotate(30*hour/180*Math.PI);
+				ctx.lineWidth = 7;
+				ctx.moveTo(0,0);
+				ctx.lineTo(150,0);
+				ctx.closePath();
+				ctx.strokeStyle = "purple";
+				ctx.stroke();
+				// 分针
+				var minute = date.getMinutes();
+				console.log(minute);
+				ctx.restore();
+				ctx.rotate(90/180*Math.PI);
+				ctx.beginPath();
+				ctx.rotate(6*minute/180*Math.PI);
+				ctx.lineWidth = 5;
+				ctx.moveTo(0,0);
+				ctx.lineTo(180,0);
+				ctx.closePath();
+				ctx.strokeStyle = "red";
+				ctx.stroke();
+				//秒针
+				var second = date.getSeconds();
+				console.log(second);
+				ctx.restore();
+				ctx.rotate(120/180*Math.PI);
+				ctx.beginPath();
+				ctx.rotate(6*second/180*Math.PI);
+				ctx.lineWidth = 3;
+				ctx.moveTo(0,0);
+				ctx.lineTo(190,0);
+				ctx.closePath();
+				ctx.strokeStyle = "orange";
+				ctx.stroke();
+			}
+			setInterval(getTimes(),1000);
+		</script>
+	</body>
+</html>
