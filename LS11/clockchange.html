@@ -38,7 +38,7 @@
 				// 坐标轴平移和旋转
 				ctx.translate(300,300);
 				ctx.rotate(-90/180*Math.PI);
-				ctx.save();
+//				ctx.save();
 				
 				// 小刻度
 				
@@ -53,7 +53,7 @@
 					ctx.stroke();
 				}
 				// 大刻度
-				ctx.restore();
+//				ctx.restore();
 				for(let i=0;i<12;i++){
 					ctx.beginPath();
 					ctx.rotate(30/180*Math.PI);
@@ -65,7 +65,7 @@
 					ctx.stroke();
 				}
 				// 数字
-				ctx.restore();
+//				ctx.restore();
 				ctx.rotate(90/180*Math.PI);
 				
 				ctx.beginPath();
@@ -83,48 +83,66 @@
 				// 获取日期
 				var date = new Date();
 				var hour = date.getHours();
-				console.log(hour);
+//				console.log(hour);
 				var minute = date.getMinutes();
-				console.log(minute);
+//				console.log(minute);
 				var second = date.getSeconds();
-				console.log(second);
+//				console.log(second);
 				// 时针
-				ctx.restore();
+//				ctx.restore();
 //				ctx.rotate(-90/180*Math.PI);
+				ctx.save();
+//				ctx.restore();
 				ctx.beginPath();
-				ctx.rotate((-96+(30*hour+0.5*minute+0.0083*second))/180*Math.PI);
-				ctx.lineWidth = 7;
+				ctx.rotate(((30*hour+0.5*minute+0.0083*second))/180*Math.PI);
+				ctx.lineWidth = 8;
 				ctx.moveTo(0,0);
-				ctx.lineTo(150,0);
+				ctx.lineTo(0,-150);
 				ctx.closePath();
-				ctx.strokeStyle = "purple";
+				ctx.strokeStyle = "#8E388E";
 				ctx.stroke();
 				// 分针
 				
 				ctx.restore();
+				ctx.save();
 //				ctx.rotate(42/180*Math.PI);
 				ctx.beginPath();
-				ctx.rotate((42+(6*minute+0.1*second))/180*Math.PI);
-				ctx.lineWidth = 5;
+				ctx.rotate(((6*minute+0.1*second))/180*Math.PI);
+				ctx.lineWidth = 4;
 				ctx.moveTo(0,0);
-				ctx.lineTo(180,0);
+				ctx.lineTo(0,-180);
 				ctx.closePath();
-				ctx.strokeStyle = "red";
+				ctx.strokeStyle = "#FF82AB";
 				ctx.stroke();
 				//秒针
 				
 				ctx.restore();
-				
 				ctx.beginPath();
-				ctx.rotate((120+(6*second))/180*Math.PI);
+				ctx.rotate(((6*second))/180*Math.PI);
 				ctx.lineWidth = 3;
 				ctx.moveTo(0,0);
-				ctx.lineTo(190,0);
+				ctx.lineTo(0,-190);
 				ctx.closePath();
-				ctx.strokeStyle = "orange";
+				ctx.strokeStyle = "#CD3700";
 				ctx.stroke();
+				// 秒针上的小圆圈
+				ctx.beginPath();
+				ctx.lineWidth=1;
+				ctx.arc(0,-170,5,0,2*Math.PI,false);
+				ctx.fillStyle="#CD3700";
+				ctx.stroke();
+				ctx.fill();
+				ctx.closePath();
+				ctx.beginPath();
+				ctx.lineWidth=1;
+				ctx.arc(0,-170,3,0,2*Math.PI,false);
+				ctx.fillStyle="#000000";
+				ctx.stroke();
+				ctx.fill();
+				ctx.restore();
+				ctx.closePath();
 			}
-			setInterval(draw,10);
+			setInterval(draw,1000);
 		</script>
 	</body>
 </html>
