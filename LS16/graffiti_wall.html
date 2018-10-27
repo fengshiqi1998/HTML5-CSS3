@@ -11,6 +11,8 @@
 			}
 			body {
 				background-image: url(images/bg3.JPG);
+				background-repeat: no-repeat;
+				background-size: cover;
 			}
 			ul {
 				list-style: none;
@@ -19,18 +21,39 @@
 			li {
 				float: left;
 				background-color: #fff;
-				width: 160px;
-				height: 200px;
-				margin: 20px;
+				height: 180px;
+				margin: 30px;
 				box-shadow: 1px 1px #ccc;
+				opacity: 0.85;
+			}
+			.li2 {
+				transform-origin: 25% 25%;
+				transform: rotate(-10deg);
+			}
+			.li3 {
+				transform-origin: 10% 25%;
+				transform: rotate(10deg);
+			}
+			.li4 {
+				transform-origin: 15% 25%;
+				transform: rotate(5deg);
+			}
+			.li5 {
+				transform-origin: 10% 25%;
+				transform: rotate(-5deg);
+			}
+			.li6 {
+				transform-origin: 25% 15%;
+				transform: rotate(10deg);
 			}
 			img {
-				width: 140px;
-				height: 140px;
+				transform: scale(1);
+				height: 120px;
 				margin: 10px;
 			}
 			li:hover {
-				transform: scale(2,2);
+				transform: scale(1.4,1.4);
+				opacity: 1;
 			}
 			li p {
 				text-align: center;
@@ -39,12 +62,12 @@
 	</head>
 	<body>
 		<ul>
-			<li><img src="images/11.jpg" alt="11" /><p>相识</p></li>
-			<li><img src="images/22.JPG" alt="22" /><p>凝视</p></li>
-			<li><img src="images/33.JPG" alt="33" /><p>甜睡</p></li>
-			<li><img src="images/44.JPG" alt="44" /><p>逗乐</p></li>
-			<li><img src="images/55.JPG" alt="55" /><p>奔跑</p></li>
-			<li><img src="images/66.JPG" alt="66" /><p>漠视</p></li>
+			<li class="li1"><img src="images/11.jpg" alt="11" /><p>相识</p></li>
+			<li class="li2"><img src="images/22.JPG" alt="22" /><p>凝视</p></li>
+			<li class="li3"><img src="images/33.JPG" alt="33" /><p>甜睡</p></li>
+			<li class="li4"><img src="images/44.JPG" alt="44" /><p>逗乐</p></li>
+			<li class="li5"><img src="images/55.JPG" alt="55" /><p>奔跑</p></li>
+			<li class="li6"><img src="images/66.JPG" alt="66" /><p>漠视</p></li>
 		</ul>
 	</body>
 </html>
