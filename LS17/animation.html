@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="../img/favicon.ico" />
+		<title>动画</title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: #ffff00;
+				position: relative;
+				top: 0;
+				left: 0;
+			}
+			@keyframes myRotate {
+				0%{transform: rotate(0deg);}
+				100%{transform: rotate(360deg);}
+			}
+			div:hover {
+				animation: myRotate 2s linear 1s;
+				animation-iteration-count: infinite;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="../img/favicon.ico" />
+		<title>过渡</title>
+		<style type="text/css">
+			div {
+				width: 300px;
+			}
+			div .div1, div .div2,div .div3,div .div4,div .div5{
+				background-color: #ffff00;
+				width: 100px;
+				margin: 20px;
+			}
+			
+			div:hover .div1,div:hover .div2,div:hover .div3,div:hover .div4,div:hover .div5{
+				background-color: #00ffff;
+				width: 200px;
+				/*transition-property: background-color, width;
+				transition-duration: 2s;
+				transition-delay: 0.5s;*/
+				transition: background-color 2s 0.5s,width 2s 0.5s;
+				
+			}
+			div:hover .div1 {
+				transition-timing-function: linear;
+			}
+			div:hover .div2 {
+				transition-timing-function: ease;
+			}
+			div:hover .div3 {
+				transition-timing-function: ease-in;
+			}
+			div:hover .div4 {
+				transition-timing-function: ease-in-out;
+			}
+			div:hover .div5 {
+				transition-timing-function: ease-out;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div class="div1">linear</div>
+			<div class="div2">ease</div>
+			<div class="div3">ease-in</div>
+			<div class="div4">ease-in-out</div>
+			<div class="div5">ease-out</div>
+			<!--<div class="div6">example</div>-->
+		</div>
+	</body>
+</html>

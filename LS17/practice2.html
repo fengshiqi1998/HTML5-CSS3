@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="../img/favicon.ico" />
+		<title>练习2</title>
+		<style type="text/css">
+			.container {
+				margin: 100px auto;
+				width: 600px;
+				height: 283px;
+				border: 1px solid #000;
+				overflow: hidden;
+			}
+			.imgs {
+				position: relative;
+			}
+			img {
+				width: 600px;
+			}
+			@keyframes imgMove{
+				0%{
+					top: 0;
+					opacity: 0;
+				}
+				100% {
+					top: -282.34px;
+					opacity: 1;
+					/*top: -1141.7px;*/
+				}
+			}
+			img {
+				animation-name: imgMove;
+				animation-delay: 1s;
+				animation-duration: 1s;
+				animation-timing-function: linear;
+				/*animation-iteration-count: infinite;*/
+				/*animation-direction: alternate;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="imgs"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var container = document.getElementsByClassName('container')[0];
+		var imgs = document.getElementsByClassName('imgs')[0];
+		for(var i=0;i<5;i++) {
+			var img = document.createElement('img');
+			img.src = 'imgs/img_'+(i+1)+'.jpg';
+//			imgs.appendChild(img);
+			container.appendChild(img);
+		}
+		var img = document.createElement('img');
+		img.src = 'imgs/img_1.jpg';
+//		imgs.appendChild(img);
+		container.appendChild(img);
+	</script>
+</html>

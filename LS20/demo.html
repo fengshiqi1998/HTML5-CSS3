@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="../img/favicon.ico" />
+		<title>响应式布局</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			@media screen and (min-width: 1366px) {
+				#container {
+					margin: 0 auto;
+					width: 1200px;
+					display: flex;
+					flex-direction: row;
+				}
+				#container div {
+					margin: 5px;
+					background-color: #F0AD4E;
+					text-align: center;
+				}
+			}
+			@media screen and (min-width: 800) {
+				#container {
+					margin: 0 auto;
+					width: 800px;
+					display: flex;
+					flex-direction: column;
+				}
+				#container div {
+					margin: 5px;
+					background-color: #F0AD4E;
+					text-align: center;
+				}
+			}
+			#container div:nth-child(odd) {
+				flex: 1;
+			}
+			#container div:nth-child(1) ul {
+				list-style: none;
+			}
+			#container div:nth-child(2) {
+				flex: 4;
+			}
+			#container div:nth-child(2) img {
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div>
+				<ul>
+					<li>HTML5</li>
+					<li>CSS3</li>
+					<li>Bootstrap</li>
+					<li>Others</li>
+				</ul>
+			</div>
+			<div>
+				<h3>HTML5</h3>
+				<p>万维网的核心语言</p>
+				<img src="imgs/1.jpg" alt="pic" />
+			</div>
+			<div>
+				<h5>What?</h5>
+				<p>Hyper Text Markup Language</p>
+				<h5>Where?</h5>
+				<p>In the website</p>
+				<h5>Price?</h5>
+				<p>The technology is free!</p>
+			</div>
+		</div>
+	</body>
+</html>

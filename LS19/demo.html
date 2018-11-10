@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="../img/favicon.ico" />
+		<title>弹性盒</title>
+		<style type="text/css">
+			#container {
+				width: 900px;
+				background-color:#FFEC89;
+				display: flex;
+				flex-direction: row-reverse;
+				flex-wrap: wrap;
+				justify-content: flex-end;
+				align-items: flex-end;
+				/*flex-direction: row;*/
+				/*flex-direction: column;*/
+				/*flex-direction: column-reverse;*/
+			}
+			.left-slider {
+				margin: 20px;
+				width: 200px;
+				padding: 20px;
+				background-color: orange;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div class="left-slider"></div>
+			<div class="left-slider"></div>
+			<div class="left-slider"></div>
+		</div>
+	</body>
+</html>
